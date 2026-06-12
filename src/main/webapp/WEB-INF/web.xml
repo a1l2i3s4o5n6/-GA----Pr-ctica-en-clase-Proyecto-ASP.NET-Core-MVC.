@@ -20,12 +20,16 @@
         <filter-name>AuthFilter</filter-name>
         <filter-class>com.seguridad.filter.AuthFilter</filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-        <url-pattern>/api/productos/*</url-pattern>
-        <url-pattern>/api/usuarios/*</url-pattern>
-        <url-pattern>/app/*</url-pattern>
-    </filter-mapping>
+<filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/api/productos/*</url-pattern>
+    <url-pattern>/api/usuarios/*</url-pattern>
+    <url-pattern>/app/*</url-pattern>
+
+    <!-- Proteger páginas HTML -->
+    <url-pattern>/dashboard.html</url-pattern>
+    <url-pattern>/admin.html</url-pattern>
+</filter-mapping>
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
