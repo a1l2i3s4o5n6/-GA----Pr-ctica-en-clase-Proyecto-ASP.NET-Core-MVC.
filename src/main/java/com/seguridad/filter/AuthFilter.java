@@ -16,14 +16,15 @@ public class AuthFilter implements Filter {
         HttpSession session = req.getSession(false);
 
         if (session == null || session.getAttribute("usuario") == null) {
-            String path = req.getRequestURI();
-            if (path.contains("/app/")) {
-                resp.sendRedirect(req.getContextPath() + "/index.html");
-            } else {
-                JsonUtils.sendError(resp, 401, "No autorizado. Debe iniciar sesión.");
-            }
-            return;
+    String path = req.getRequestURI();
+
+     if (path.contains("/app/") || path.endsWith(".html")) {
+        resp.sendRedirect(req.getContextPath() + "/index.html");
+        } else {
+        JsonUtils.sendError(resp, 401, "No autorizado. Debe iniciar sesión.");
         }
+    return;
+      }
 
         String path = req.getRequestURI();
         if (path.contains("/api/usuarios")) {
