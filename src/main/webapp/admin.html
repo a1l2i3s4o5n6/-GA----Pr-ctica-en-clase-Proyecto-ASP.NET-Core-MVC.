@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Inyección SQL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h2>Panel Admin</h2>
+        </div>
+        <div class="nav-right">
+            <span id="userInfo"></span>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <button id="logoutBtn" class="btn-danger">Cerrar Sesión</button>
+        </div>
+    </nav>
+    <main class="main-content">
+        <section class="admin-section">
+            <h1>Gestión de Usuarios</h1>
+            <button id="showCreateForm" class="btn-primary">+ Nuevo Usuario</button>
+            <div id="createForm" class="create-form hidden">
+                <h3>Crear Usuario</h3>
+                <div class="form-row">
+                    <input type="text" id="newUsuario" placeholder="Usuario">
+                    <input type="password" id="newPassword" placeholder="Contraseña">
+                    <input type="text" id="newNombre" placeholder="Nombre completo">
+                    <select id="newRol">
+                        <option value="user">Usuario</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <button id="saveUserBtn" class="btn-primary">Guardar</button>
+                </div>
+            </div>
+            <div id="usersTable" class="table-container">
+                <div class="loading">Cargando usuarios...</div>
+            </div>
+        </section>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

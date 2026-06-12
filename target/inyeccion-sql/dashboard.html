@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Inyección SQL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h2>Prevención SQLi</h2>
+        </div>
+        <div class="nav-right">
+            <span id="userInfo"></span>
+            <a href="#" id="adminLink" class="nav-link hidden">Admin</a>
+            <a href="/inyeccion-sql/app/mi-cuenta.jsp" class="nav-link">Mi Cuenta</a>
+            <button id="logoutBtn" class="btn-danger">Cerrar Sesión</button>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="search-section">
+            <h1>Búsqueda de Productos</h1>
+            <p class="subtitle">Sistema con consultas parametrizadas (PreparedStatement)</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar productos por nombre, descripción o categoría...">
+                <button id="searchBtn" class="btn-primary">Buscar</button>
+            </div>
+            <div class="search-info">
+                <strong>Prueba de seguridad:</strong> Intentá ingresar <code>' OR 1=1 --</code> en la búsqueda
+                para ver cómo el sistema lo rechaza.
+            </div>
+        </div>
+        <div id="results" class="results-section">
+            <div class="loading">Cargando productos...</div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
